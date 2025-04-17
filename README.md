@@ -1,45 +1,86 @@
-App de corretagem
+# Projeto de Corretor Imobiliário em React Native
 
-Aplicativo mobile React Native para criação, reserva e gerenciamento de propostas de compra de lotes.
+Este repositório contém o aplicativo móvel **Propostas Imobiliárias**, desenvolvido em React Native com integração ao Supabase. O app permite:
 
-Funcionalidades
+- Autenticação de corretores (login/cadastro seguro)
+- Listagem de empreendimentos e plantas
+- Seleção e reserva de lotes
+- Preenchimento de propostas com dados pessoais e condições de pagamento
+- Geração de PDF das propostas
+- Visualização e gerenciamento de propostas salvas
+- Recuperação de senha
 
-Cadastro e login de corretores com código de autorização
+---
 
-Listagem de empreendimentos e plantas interativas de lotes
+## 📋 Sumário
 
-Reserva de lotes com proposta completa (dados pessoais, endereço, condições de pagamento)
+- [Pré-requisitos](#-pré-requisitos)
+- [Instalação](#-instalação)
+- [Configuração](#-configuração)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Fluxos Principais](#-fluxos-principais)
+- [Scripts Disponíveis](#-scripts-disponíveis)
+- [Tecnologias](#-tecnologias)
+- [Boas práticas](#-boas-práticas)
+- [Licença](#-licença)
 
-Cálculo dinâmico de entrada, sinal e parcelas (pix, cartão e boleto)
+---
 
-Geração de PDF da proposta e compartilhamento/download
+## 🔧 Pré-requisitos
 
-Listagem e gerenciamento de propostas salvas (editar, excluir, filtrar por nome/CPF)
+- Node.js >=14.x  
+- Yarn ou npm  
+- Expo CLI (global)  
+- Conta no Supabase com URL e API key  
 
-Recuperação de CEP via ViaCEP
+---
 
-Tela de "Esqueci minha senha" com fluxo de recuperação
+## 🚀 Instalação
 
-Tecnologias e bibliotecas
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/SEU_USUARIO/propostas-imobiliarias.git
+   cd propostas-imobiliarias
+   ```
 
-React Native
+2. Instale as dependências:
+   ```bash
+   yarn install
+   # ou npm install
+   ```
 
-Expo (Print, FileSystem, Sharing)
+3. Inicie o servidor de desenvolvimento Expo:
+   ```bash
+   expo start
+   ```
 
-React Navigation (Native Stack)
+4. Execute no emulador ou dispositivo físico via QR Code.
 
-Supabase (autenticação e banco de dados)
+---
 
-react-hook-form para gerenciamento de formulários
+## ⚙️ Configuração
 
-@react-native-picker/picker para selects
+1. Monte um projeto no Supabase e copie sua URL e `anon` API KEY.  
+2. Crie o arquivo `.env` na raiz com:
+   ```ini
+   SUPABASE_URL=https://xyz.supabase.co
+   SUPABASE_KEY=eyJhbGci...
+   ```
+3. Ajuste permissões no Supabase: tabela `propostas` com colunas JSON para `dados_cliente`, `user_id`, `lote`, `valor`, `pdf_url`, timestamps.
 
-react-native-pdf para visualização de PDF
+---
 
-Estrutura de pastas
+## 📁 Estrutura do Projeto
 
-/root
+```
 ├── App.js
+├── package.json
+├── .env
+├── assets/
+│   └── imagens, fontes, ícones
+├── components/
+│   ├── BaseButton.js
+│   └── BaseInput.js
 ├── screens/
 │   ├── LoginScreen.js
 │   ├── CadastroScreen.js
@@ -47,70 +88,69 @@ Estrutura de pastas
 │   ├── PlantaScreen.js
 │   ├── PropostaScreen.js
 │   ├── PropostasSalvasScreen.js
-│   ├── VisualizarPDFScreen.js
-│   └── ForgotPasswordScreen.js (nova)
-├── components/
-│   ├── BaseInput.js
-│   └── BaseButton.js
+│   ├── EsqueciSenhaScreen.js
+│   └── VisualizarPDFScreen.js
 ├── theme/
 │   ├── colors.js
 │   ├── spacing.js
 │   └── typography.js
 ├── utils/
 │   └── supabase.js
-└── assets/
-    └── logo.png (opcional)
+└── README.md
+```
 
-Primeiros passos
+---
 
-Clone o repositório:
+## 🔄 Fluxos Principais
 
-git clone https://github.com/usuario/repo.git
-cd repo
+1. **Autenticação**: Login / Cadastro de corretores com código de autorização.  
+2. **Listagem de Empreendimentos**: Tela inicial após login, opção de acessar planta.  
+3. **Planta de Lotes**: Grade de lotes com status (vendido, reservado, disponível). Reservar, editar ou cancelar proposta.  
+4. **Proposta**: Formulário completo com seções:
+   - Dados pessoais (CPF/CNPJ, nome, contato)  
+   - Endereço (CEP via ViaCEP)  
+   - Condições de pagamento (entrada, parcelas, sinal)  
+   - Geração e visualização de PDF  
+5. **Propostas Salvas**: Tela de histórico, busca por nome/CPF, editar, excluir, compartilhar/baixar PDF.  
+6. **Recuperação de Senha**: Envio de link ou código via Supabase Auth.  
 
-Instale as dependências:
+---
 
-npm install
-# ou yarn install
+## 🛠️ Scripts Disponíveis
 
-Configure variáveis de ambiente:
+- `yarn start` / `npm start`: Inicia o Expo DevTools  
+- `yarn android` / `npm run android`: Build and run on Android  
+- `yarn ios` / `npm run ios`: Build and run on iOS  
+- `yarn web` / `npm run web`: Start web version  
 
-Crie um arquivo .env na raiz com as chaves:
+---
 
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_anon_key
+## 💻 Tecnologias
 
-Inicie o servidor Expo:
+- React Native + Expo  
+- React Navigation (Stack)  
+- Supabase (Auth, Database)  
+- React Hook Form  
+- Styled Components (opcional)  
+- Expo Print (PDF)  
 
-npm start
-# ou expo start
+---
 
-Abra no simulador ou dispositivo físico via QR Code.
+## ✅ Boas práticas
 
-Fluxos
+- Componentização (`BaseInput`, `BaseButton`)  
+- Theming centralizado (`theme/`)  
+- Hooks de formulário (`react-hook-form`)  
+- Validações inline e mensagens de erro  
+- Acessibilidade: labels, placeholders claros  
+- Responsividade: espaçamentos e proporções adaptáveis  
 
-Cadastro: inserção de e-mail, senha e código de autorização.
+---
 
-Login: e-mail + senha.
+## 📄 Licença
 
-Esqueci minha senha: solicitar reset por e-mail.
+Este projeto está licenciado sob a [MIT License](LICENSE).
 
-Reservar lote: tap em lote disponível → preencher proposta → gerar ou salvar PDF.
+---
 
-Propostas salvas: editar, filtrar, compartilhar, excluir.
-
-Personalização e temas
-
-Utiliza objetos colors, spacing e typography para padronizar estilos.
-
-Contribuição
-
-Fork do repositório
-
-Nova branch (git checkout -b feature/nova-funcionalidade)
-
-Commit das mudanças (git commit -m 'Adiciona nova funcionalidade')
-
-Push na branch (git push origin feature/nova-funcionalidade)
-
-Abra um Pull Request
+**Desenvolvido por Ariel Melo. Sinta-se à vontade para contribuir!**
