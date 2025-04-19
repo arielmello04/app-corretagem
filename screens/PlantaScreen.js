@@ -154,7 +154,7 @@ export default function PlantaScreen({ route, navigation }) {
         { text: 'Fechar', style: 'cancel' },
       ]);
     } else {
-      Alert.alert(`Lote ${lote.numero}`, 'Não disponível para ação.');
+      Alert.alert(`Lote ${lote.numero}`, 'Lote vendido.');
     }
   };
 
