@@ -12,6 +12,18 @@ Este repositório contém o aplicativo móvel **Propostas Imobiliárias**, desen
 
 ---
 
+## 📸 Sessão de Mídia
+
+<!-- Substitua as rotas abaixo pelos caminhos das suas imagens -->
+![Imagem 1](./assets/images/1.png)
+![Imagem 2](./assets/images/2.png)
+![Imagem 3](./assets/images/3.png)
+![Imagem 4](./assets/images/4.png)
+![Imagem 5](./assets/images/5.png)
+![Imagem 6](./assets/images/6.png)
+
+---
+
 ## 📋 Sumário
 
 - [Pré-requisitos](#-pré-requisitos)
