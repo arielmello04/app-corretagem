@@ -10,7 +10,7 @@ Este repositório contém o aplicativo móvel **Propostas Imobiliárias**, desen
 - Visualização e gerenciamento de propostas salvas
 - Recuperação de senha
 
---
+---
 
 ## 📸 Sessão de Mídia
 
