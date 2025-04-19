@@ -10,7 +10,7 @@ Este repositório contém o aplicativo móvel **Propostas Imobiliárias**, desen
 - Visualização e gerenciamento de propostas salvas
 - Recuperação de senha
 
----
+--
 
 ## 📸 Sessão de Mídia
 
@@ -51,8 +51,8 @@ Este repositório contém o aplicativo móvel **Propostas Imobiliárias**, desen
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/SEU_USUARIO/propostas-imobiliarias.git
-   cd propostas-imobiliarias
+   git clone https://github.com/SEU_USUARIO/app-imobiliario.git
+   cd app-imobiliario
    ```
 
 2. Instale as dependências:
